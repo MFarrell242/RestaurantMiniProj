@@ -65,3 +65,11 @@
       </footer>
     
   </div>
+  <script>
+    $.get("/api/tables").then((data)=>{
+      data.forEach((table)=>{
+        let newLI = document.getElementById("tableList")
+        $(newLI).append(`<li>Name: ${table.name}, Phone: ${table.phoneNumber}, Email: ${table.email}, Party Size: ${table.partySize}</li>`)
+      })
+    })
+  </script>
