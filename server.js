@@ -16,6 +16,7 @@ var tables = [
         name: "name",
         phoneNumber: "123456789",
         email: "no@no.com",
+        partySize: 7,
         uid: 123
     }
 ];
