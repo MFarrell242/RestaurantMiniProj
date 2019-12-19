@@ -69,10 +69,10 @@
       name: $("#name").val().trim(),
       phone: $("#phone").val().trim(),
       email: $("#email").val().trim(),
-      people: $("party").val().trim()
+      people: $("#party").val().trim()
     };
 
-    $.post("/api/reservations", newRes)
+    $.post("/api/tables", newRes)
     .then((data)=>{
       console.log("reserve.html", data);
       alert("Reservation made.");
