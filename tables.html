@@ -18,53 +18,50 @@
 
   <div class="container">
     <div class="jumbotron">
-      <h1>Best Good Restaurant Reservations</h1>
-      <h3>The greatest resource in the blogosphere for foodies!</h3>
-      <hr>
-      <a href="/reserve"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make a Reservation</button></a>
-      <a href="/api/tables"><button class="btn btn-danger btn-lg"><span
-            class="fa fa-eye"></span> View All Reservations</button></a>
-    </div>
-    <div class="row">
+      <h1 class="text-center">
+        <span class="fa fa-fire"></span> Hot Restaurant</h1>
+        <hr>
+        <h2 class="text-center">Current Reservations and Waiting List</h2>
+      
+      
+        <div class="text-center">
+          <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a>
+          <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+        </div>
+      </div>
 
-      <div class="col-12">
-
-        <div class="card">
-          <div class="card-header">
-            <h3><strong>Table Info</strong></h3>
-          </div>
-          <div class="card-body">
-            <h2 id="t1">Table 1</h2>
-            <div id="stats">
-              <h3><strong>Name:</strong> <span id="t1name"></span></h3>
-              <h3><strong>Phone No:</strong> <span id="t1phone"></span></h3>
-              <h3><strong>email:</strong> <span id="t1mail"></span></h3>
-              <h3><strong>Party Size:</strong> <span id="t1size"></span></h3>
+      <div class="row">
+        <div class="col-lg-12">
+  
+          <!-- Current Tables in Use -->
+          <div class="card">
+            <div class="card-header">
+              <h4>Current Reservations</h4>
+            </div>
+            <div class="card-body">
+              <ul id="tableList" class="list-group"></ul>
             </div>
           </div>
-          <div class="card-body">
-            <h2 id="t2">Table 2</h2>
-            <div id="stats">
-              <h3><strong>Name:</strong> <span id="t2name"></span></h3>
-              <h3><strong>Phone No:</strong> <span id="t2phone"></span></h3>
-              <h3><strong>email:</strong> <span id="t2mail"></span></h3>
-              <h3><strong>Party Size:</strong> <span id="t2size"></span></h3>
+  
+          <!-- Waiting List Card -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <h4>Waiting List</h4>
             </div>
-          </div>
-          <div class="card-body">
-            <h2 id="t3">Table 3</h2>
-            <div id="stats">
-              <h3><strong>Name:</strong> <span id="t3name"></span></h3>
-              <h3><strong>Phone No:</strong> <span id="t3phone"></span></h3>
-              <h3><strong>email:</strong> <span id="t3mail"></span></h3>
-              <h3><strong>Party Size:</strong> <span id="t3size"></span></h3>
-            </div>
+            <div class="card-body">
+              <ul id="waitList" class="list-group"></ul>
+            </div><i class="fa fa-external-link-square" aria-hidden="true"></i>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+      
 
-  <script type="text/javascript">
-    $(window).on()
-  </script>
+      <footer class="footer mt-4">
+        <div class="container">
+          <p>Control Panel</p>
+          <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+              Wait List</a>
+        </p></div>
+      </footer>
+    
+  </div>
