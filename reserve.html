@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Reservation Maker</title>
@@ -10,6 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
   <div class="container">
@@ -17,7 +19,8 @@
       <h1>Best Good Restaurant Reservations</h1>
       <h3>The greatest resource in the blogosphere for foodies!</h3>
       <hr>
-      <a href="/tables"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Reservations</button></a>
+      <a href="/tables"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View
+          Reservations</button></a>
     </div>
     <div class="row">
 
@@ -53,7 +56,8 @@
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Reserve a Table</button>
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="fa fa-fire"></span> Reserve
+                a Table</button>
             </div>
           </div>
         </div>
@@ -63,22 +67,34 @@
   </div>
 
   <script type="text/javascript">
-  $("#add-btn").on("click", function(event){
-    event.preventDefault();
-    var newRes = {
-      name: $("#name").val().trim(),
-      phoneNumber: $("#phone").val().trim(),
-      email: $("#email").val().trim(),
-      partySize: $("#party").val().trim()
-    };
-
-    $.post("/api/tables", newRes)
-    .then((data)=>{
-      console.log("reserve.html", data);
-      alert("Reservation made.");
+    $("#add-btn").on("click", function (event) {
+      event.preventDefault();
+      var newRes = {
+        name: $("#name").val().trim(),
+        phoneNumber: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        partySize: $("#party").val().trim()
+      };
+      $.get("/api/tables", function (data) {
+        console.log(data.length)
+        if (data.length < 5) {
+          $.post("/api/tables", newRes)
+            .then((data) => {
+              console.log("reserve.html", data);
+              alert("Reservation made.");
+            });
+        }
+        else{
+          $.post("/api/waitlist", newRes)
+            .then((data) => {
+              console.log("reserve.html", data);
+              alert("Seating full, you have been added to the wait list");
+            });
+        }
+      })
     });
-  });
   </script>
 
 </body>
+
 </html>
